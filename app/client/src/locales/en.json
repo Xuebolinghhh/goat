@@ -13,7 +13,7 @@
       "filter": "Thematic Data Filter",
       "edit": "Draw scenario",
       "settings": "Language",
-      "info": "Info"
+      "info": "Visit GOAT Homepage"
     },
     "login": {
       "title": "Login",
@@ -103,14 +103,31 @@
       "drawFeatureTooltip": "Draw Feature",
       "modifyFeatureTooltip": "Modify Feature",
       "deleteFeature": "Delete Feature",
-      "clearBtn": "Delete All",
+      "clearBtn": "Revert All",
       "uploadBtn": "Upload",
       "popup": {
         "deleteFeatureMsg": "Are you sure you want to delete the selected feature ?",
         "selectWayType": "Select way type: ",
         "wayType": "Way Type"
       },
+      "table": {
+        "layer": "Layer",
+        "status": "Status",
+        "type": "Type",
+        "actions": "Actions"
+      },
+      "type": {
+        "New": "New",
+        "Modified": "Modified",
+        "Restored": "Restored",
+        "Deleted": "Deleted"
+      },
+      "status": {
+        "Uploaded": "Uploaded",
+        "NotUploaded": "Not Uploaded"
+      },
       "activateLayerToDrawScenario": "Plese activate the layer to be able to select features",
+      "dataTypeInfo": "Data type should be",
       "geometryTypeInfo": "Geometry type should be",
       "requiredFields": "Required Fields",
       "referenceSystemInfo": "Reference sytem should be in",

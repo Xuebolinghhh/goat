@@ -94,7 +94,7 @@
             </v-btn-toggle>
           </v-flex>
           <v-flex
-            v-if="isFileUploadEnabled === true"
+            v-if="layerConf[layerName.split(':')[1]].enableFileUpload === true"
             xs12
             v-show="selectedLayer != null"
             class="mt-1 pt-0 mb-0"
@@ -125,6 +125,11 @@
               colored-border
               dense
             >
+              <span
+                >&#9679; {{ $t("appBar.edit.dataTypeInfo") }}:
+                <b>{{ selectedLayer.get("editDataType") }}</b>
+              </span>
+              <br />
               <span
                 >&#9679; {{ $t("appBar.edit.geometryTypeInfo") }}:
                 <b>{{ selectedLayer.get("editGeometry") }}</b>
@@ -177,8 +182,11 @@
                   :color="item.status === 'Uploaded' ? 'success' : 'error'"
                   dark
                   class="mx-0 px-1"
-                  >{{ item.status }}</v-chip
+                  >{{ $t(`appBar.edit.status.${item.status}`) }}</v-chip
                 >
+              </template>
+              <template v-slot:item.type="{ item }">
+                <span>{{ $t(`appBar.edit.type.${item.type}`) }}</span>
               </template>
 
               <template v-slot:item.action="{ item }">
@@ -405,36 +413,6 @@ export default {
       select: "pointer"
     },
     //Data table
-    headers: [
-      {
-        text: "Layer",
-        value: "layerName",
-        sortable: false,
-        align: "center",
-        width: "20%"
-      },
-      {
-        text: "Status",
-        value: "status",
-        sortable: false,
-        align: "center",
-        width: "25%"
-      },
-      {
-        text: "Type",
-        value: "type",
-        sortable: false,
-        align: "center",
-        width: "25%"
-      },
-      {
-        text: "Actions",
-        value: "action",
-        sortable: false,
-        align: "center",
-        width: "25%"
-      }
-    ],
     scenarioDataTable: [],
     isTableLoading: false
   }),
@@ -788,6 +766,9 @@ export default {
           me.olEditCtrl.featuresToCommit[index] = evt.feature;
         }
       }
+      if (evt.feature.get("layerName") === "pois") {
+        evt.feature.set("status", 1);
+      }
     },
     /**
      * Source change base event. Used to update scenario data table
@@ -913,7 +894,7 @@ export default {
         clonedFeature.set("deletedId", feature.getId());
 
         //If the deleted feature is not uploaded in the server consider it uploaded in client side
-        if (item.status === "Not uploaded") {
+        if (item.status === "NotUploaded") {
           clonedFeature.set("status", 1);
         } else {
           clonedFeature.set("status", null);
@@ -1107,7 +1088,7 @@ export default {
           const fid = f.getId();
           const layerName = f.get("layerName");
           const isDeleted = false;
-          const status = prop.status ? "Uploaded" : "Not uploaded";
+          const status = prop.status ? "Uploaded" : "NotUploaded";
           const originalId = f.get("original_id");
           let type = "";
           if (
@@ -1144,7 +1125,7 @@ export default {
         }
         const layerName = f.get("layerName");
         const isDeleted = fid;
-        const status = prop.status === 1 ? "Uploaded" : "Not uploaded";
+        const status = prop.status === 1 ? "Uploaded" : "NotUploaded";
         const type = "Deleted";
         let source = "";
 
@@ -1191,6 +1172,38 @@ export default {
     })
   },
   computed: {
+    headers() {
+      return [
+        {
+          text: this.$t("appBar.edit.table.layer"),
+          value: "layerName",
+          sortable: false,
+          align: "center",
+          width: "20%"
+        },
+        {
+          text: this.$t("appBar.edit.table.status"),
+          value: "status",
+          sortable: false,
+          align: "center",
+          width: "25%"
+        },
+        {
+          text: this.$t("appBar.edit.table.type"),
+          value: "type",
+          sortable: false,
+          align: "center",
+          width: "25%"
+        },
+        {
+          text: this.$t("appBar.edit.table.actions"),
+          value: "action",
+          sortable: false,
+          align: "center",
+          width: "25%"
+        }
+      ];
+    },
     layerName() {
       return this.selectedLayer.getSource().getParams().LAYERS;
     },
