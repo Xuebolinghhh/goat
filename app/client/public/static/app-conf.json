@@ -326,14 +326,6 @@
           "id": 1,
           "children": [
             {
-              "name": "Nursery",
-              "value": "nursery",
-              "icon": "nursery",
-              "weight": 1,
-              "sensitivity": 300000,
-              "locked": false
-            },
-            {
               "name": "Kindergarten",
               "value": "kindergarten",
               "icon": "kindergarten",
