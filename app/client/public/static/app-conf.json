@@ -119,7 +119,7 @@
         "opacity": 1,
         "queryable": true,
         "visible": false,
-        "canEdit": true,
+        "canEdit": false,
         "editDataType": "GeoJSON",
         "editGeometry": "MultiPolygon",
         "displayInLayerList": true,
