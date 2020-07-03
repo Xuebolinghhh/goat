@@ -76,18 +76,22 @@ export const LayerFactory = {
       name: lConf.name,
       title: lConf.title,
       canEdit: lConf.canEdit,
+      canModifyGeom: lConf.canModifyGeom,
       editDataType: lConf.editDataType,
       editGeometry: lConf.editGeometry,
       modifyAttributes: lConf.modifyAttributes,
       lid: lConf.lid,
       displayInLayerList: lConf.displayInLayerList,
       displayInLegend: lConf.displayInLegend,
+      group: lConf.group,
       visible: lConf.visible,
       opacity: lConf.opacity,
       queryable: lConf.queryable,
       requiresPois: lConf.requiresPois,
       ratio: lConf.ratio ? lConf.ratio : 1.5,
       zIndex: lConf.zIndex,
+      docUrl: lConf.docUrl,
+      viewparamsDynamicKeys: lConf.viewparamsDynamicKeys,
       source: new ImageWMS({
         url: lConf.url,
         params: {
@@ -118,6 +122,7 @@ export const LayerFactory = {
       displayInLayerList: lConf.displayInLayerList,
       extent: lConf.extent,
       visible: lConf.visible,
+      group: lConf.group,
       opacity: lConf.opacity,
       preload: lConf.preload ? parseFloat(lConf.preload) : 0, //Parse float is used because it's not possible to add values like Infinity in json config
       zIndex: lConf.zIndex,
@@ -149,6 +154,7 @@ export const LayerFactory = {
       lid: lConf.lid,
       cascadePrint: lConf.cascadePrint,
       displayInLayerList: lConf.displayInLayerList,
+      group: lConf.group,
       visible: lConf.visible,
       opacity: lConf.opacity,
       source: new XyzSource({
@@ -178,6 +184,7 @@ export const LayerFactory = {
       displayInLayerList: lConf.displayInLayerList,
       visible: lConf.visible,
       opacity: lConf.opacity,
+      group: lConf.group,
       source: new OsmSource({
         url: lConf.url,
         maxZoom: lConf.maxZoom
@@ -207,6 +214,7 @@ export const LayerFactory = {
       displayInLayerList: lConf.displayInLayerList,
       visible: lConf.visible,
       opacity: lConf.opacity,
+      group: lConf.group,
       source: bingMaps
     });
 

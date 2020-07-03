@@ -55,6 +55,8 @@
           "walking_elderly": "Senior",
           "walking_safe_night": "Safe night",
           "walking_wheelchair": "Rollstuhl",
+          "walking_wheelchair_standard": "Standard",
+          "walking_wheelchair_electric": "Elektrisch",
           "cycling_standard": "Standard",
           "cycling_pedelec": "Pedelec"
         },
@@ -320,7 +322,9 @@
       "uploadScenarioError": "Leider ist beim Hochladen der Objekte in die Datenbank ein Fehler aufgetreten.",
       "notAllScnearioFeaturesUploaded": "Bei der Berechnung der Szenarien-Isochrone werden nur hochgeladene Objekte berücksichtigt.",
       "cantDeleteAllScenarioFeatures": "Die Szenarien-Daten können aktuell leider nicht gelöscht werden.",
-      "allScenarioFeaturesDelete": "Alle Szenarien-Daten wurden gelöscht"
+      "allScenarioFeaturesDelete": "Alle Szenarien-Daten wurden gelöscht",
+      "noScenarioFeatureChangeAvailable": "Ändern Sie zuerst das Netzwerk oder die Landnutzung.",
+      "cantPrintBaseLayer": "Diese Basiskarte kann nicht gedruckt werden."
     },
     "layerGroup": {
       "poisLayers": "POIs",
@@ -344,6 +348,9 @@
       "ffh-area": "FFH-Gebiete",
       "natureReserves": "Naturschutzgebiete",
       "noiseMainTrafficRoads": "Lärm von Hauptverkehrsstraßen",
+      "waterProtectionArea": "Trinkwasserschutzgebiete",
+      "floodingAreasHQ100": "Hochwassergefahrenflächen HQ100",
+      "dikes": "Deiche",
       "protectedLandscape": "Landschaftsschutzgebiete",
       "landuse": "Flächennutzung (ATKIS)",
       "landuse_osm": "Flächennutzung (OSM)",
@@ -355,7 +362,7 @@
       "speed": "Geschwindigkeitsbegrenzungen",
       "streetCategory": "Straßenkategorien - detailliert",
       "streetCategorysAggregated": "Straßenkategorien",
-      "streetCrossings": "Straßenquerungsmöglichkeiten",
+      "streetCrossings": "Querungsmöglichkeiten",
       "streetFurniture": "Straßenmöbelierung",
       "streetFurnitureBicycles": "Fahrradständer",
       "surface": "Oberfläche",
@@ -444,12 +451,73 @@
       "deleteIsochrone": "Isochrone löschen",
       "zoomIn": "Zoom In",
       "zoomOut": "Zoom Out"
+    },
+    "osmMode": {
+      "tasks": "OSM Mapping Aufgaben",
+      "steps": "Schritte",
+      "info": "Info",
+
+      "stepsDesc": {
+        "clickFeatureInMap": "Wählen Sie ein Objekt aus der Karte.",
+        "clickEditWithOsm": "Durch Klicken auf den <b>'In OSM bearbeiten'</b> Link werden Sie zum OSM iD-Editor weitergeleitet.",
+        "fillInOSMiD": "Fügen Sie den fehlenden {missingVar} im OSM Editor hinzu. Beachten Sie hierzu die entsprechenden Richtlinien aus dem OSM-Wiki. Um die fehlenden Informationen zu erlangen können z.B. Mapillary-Aufnahmen verwendet werden. "
+      },
+      "note": "Hinweis: der {layerNameVar} Layer wird alle 10 Minuten aktualisiert",
+      "shortDesc": "Vervollständigung der fehlenden {missingVar}",
+      "longDesc": "Check out {layerNameVar} for missing {missingVar}.",
+      "layers": {
+        "osm-mapping-pois": {
+          "missingKeyWord": "Öffnungszeiten",
+          "layerName": "POIs",
+          "stepsDesc": {
+            "clickFeatureInMap": "Die Icons in der Karte zeigen die Mapping-Aufgaben. Wählen Sie eine davon aus.",
+            "clickEditWithOsm": "Durch Klicken auf den <b>'In OSM bearbeiten'</b> Link werden Sie zum OSM iD-Editor weitergeleitet.",
+            "fillInOSMiD": "Fügen Sie das fehlende Attribut 'opening_hours' im OSM Editor hinzu. Beachten Sie hierzu die entsprechenden Richtlinien aus dem OSM-Wiki. Die fehlenden Informationen können z.B. von der Webseite der Einrichtung oder durch einen Vor-Ort Besuch ermittelt werden."
+          }
+        },
+        "osm-mapping-ways-speed": {
+          "missingKeyWord": "Höchstgeschwindigkeiten",
+          "layerName": "Wege",
+          "stepsDesc": {
+            "clickFeatureInMap": "Die roten Linien in der Karte zeigen die Mapping-Aufgaben. Wählen Sie eine davon aus.",
+            "clickEditWithOsm": "Durch Klicken auf den <b>'In OSM bearbeiten'</b> Link werden Sie zum OSM iD-Editor weitergeleitet.",
+            "fillInOSMiD": "Fügen Sie das fehlende Attribut 'maxspeed' im OSM Editor hinzu. Beachten Sie hierzu die entsprechenden Richtlinien aus dem OSM-Wiki. Die fehlenden Informationen können z.B. anhand von Mapillary-Aufnahmen oder durch einen Vor-Ort Besuch ermittelt werden."
+          }
+        },
+        "osm-mapping-ways-surface": {
+          "missingKeyWord": "Oberflächen",
+          "layerName": "Wege",
+          "stepsDesc": {
+            "clickFeatureInMap": "Die roten Linien in der Karte zeigen die Mapping-Aufgaben. Wählen Sie eine davon aus.",
+            "clickEditWithOsm": "Durch Klicken auf den <b>'In OSM bearbeiten'</b> Link werden Sie zum OSM iD-Editor weitergeleitet.",
+            "fillInOSMiD": "Fügen Sie das fehlende Attribut 'surface' im OSM Editor hinzu. Beachten Sie hierzu die entsprechenden Richtlinien aus dem OSM-Wiki. Die fehlenden Informationen können z.B. anhand von Mapillary-Aufnahmen oder durch einen Vor-Ort Besuch ermittelt werden."
+          }
+        },
+        "osm-mapping-ways-wheelchair": {
+          "missingKeyWord": "Barrierefreiheit",
+          "layerName": "Wege"
+        },
+        "osm-mapping-buildings-type": {
+          "missingKeyWord": "Gebäudetypen",
+          "layerName": "Gebäude",
+          "stepsDesc": {
+            "clickFeatureInMap": "Die roten Polygone in der Karte zeigen die Mapping-Aufgaben. Wählen Sie eine davon aus.",
+            "clickEditWithOsm": "Durch Klicken auf den <b>'In OSM bearbeiten'</b> Link werden Sie zum OSM iD-Editor weitergeleitet.",
+            "fillInOSMiD": "Editieren Sie das Attribut 'building' im OSM Editor. Beachten Sie hierzu die entsprechenden Richtlinien aus dem OSM-Wiki. Die fehlenden Informationen können z.B. anhand von Mapillary-Aufnahmen und Luftbildern oder durch einen Vor-Ort Besuch ermittelt werden."}
+        }
+      },
+
+      "dialogMessage": {
+        "title": "OSM Mapping Modus",
+        "body": "Willkommen im OSM-Mapping-Modus! In diesem Modus können Sie die GOAT-Daten verbessern, indem Sie zu OpenStreetMap (OSM) beitragen. Wir haben verschiedene Aufgaben für Objekte mit fehlenden Informationen erstellt, die mit dem iD-Editor oder einem anderen OSM-Editor (z.B. JOSM) bearbeitet werden können. Bitte machen Sie sich dafür mit den allgemeinen Mapping-Regeln und den entsprechenden Inhalten des OSM-Wikis vertraut. Auf der GOAT-Webseite steht außerdem ein Tutorial zum Mapping in OSM bereit. Vielen Dank für Ihren wertvollen Beitrag zur Open-Data-Welt!"
+      }
     }
   },
   "pois": {
     "education": "Bildung",
     "foodAndDrink": "Essen und Trinken",
     "transport": "Transport",
+    "mobilitystations": "Mobilitätsstationen",
     "services": "Dienstleistungen",
     "shop": "Einkaufen",
     "tourismAndLeisure": "Tourismus & Freizeit",
@@ -474,6 +542,15 @@
     "subway_entrance": "U-Bahn-Station",
     "rail_station": "Bahnhof",
     "taxi": "Taxi",
+    "bikesharing_ffb": "Radlverleih-Stationen",
+    "carsharing_ffb": "Carsharing-Stationen",
+    "charging_station_marker_ffb": "E-Ladesäulen privat",
+    "charging_station_other_ffb": "E-Ladesäulen privat (im Bau)",
+    "charging_station_public_ffb": "E-Ladesäulen öffentlich",
+    "e_parking_ffb": "E-Stellplätze",
+    "l-station_ffb": "L-Station",
+    "s-station_prio1_ffb": "S-Station Prio 1",
+    "s-station_prio2_ffb": "S-Station Prio 2",
     "hairdresser": "Friseur",
     "atm": "Geldautomat",
     "bank": "Bank",
@@ -503,7 +580,7 @@
     "museum": "Museum",
     "hotel": "Hotel",
     "hostel": "Herberge",
-    "guest_house": "Gasthaus",
+    "guest_house": "Pension",
     "gallery": "Galerie",
     "university": "Universität",
     "hospital": "Krankenhaus",
