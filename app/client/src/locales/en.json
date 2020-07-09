@@ -5,7 +5,13 @@
     "cancel": "Cancel",
     "save": "Save",
     "ok": "Ok",
-    "remove": "Remove"
+    "remove": "Remove",
+    "stop": "Stop"
+  },
+  "textFieldRules": {
+    "greaterThanZero": "Value should be greater than 0",
+    "smallerThanThousand": "Value should be smaller than 1000",
+    "onlyTwoDecimalPlaces": "Only 2 decimal places are allowed"
   },
   "appBar": {
     "buttons": {
@@ -180,6 +186,7 @@
     "title": "Isochrones",
     "calculation": "Calculation",
     "calculationTitle": "Isochrone Calculation",
+    "stopIsochroneCalc": "Stop Calculation",
     "single": {
       "title": "Starting Point",
       "type": "Single",
@@ -304,6 +311,7 @@
     "snackbarMessages": {
       "selectAmenities": "You must select at least one point of interest",
       "calculateIsochroneError": "Sorry but here no calculation is possible",
+      "calculateIsochroneCancelled": "Isochrone Calculation Cancelled",
       "uploadScenarioSuccess": "Features uploads successfully.",
       "uploadScenarioError": "Sorry, an error happened while uploading the features in database.",
       "notAllScnearioFeaturesUploaded": "The isochrone scenario calculation will not take in account not uploaded features.",
@@ -655,8 +663,10 @@
         "opening_hours": "Opening Hours (Optional)"
       },
       "buildings": {
+        "building": "Building Type",
         "building_levels": "Building Levels",
-        "building_type": "Building Type"
+        "building_levels_residential": "Building levels residential",
+        "population": "Number residents (optional)"
       }
     },
     "listValues": {
@@ -671,6 +681,12 @@
         "unpaved": "Unpaved",
         "yes": "Yes",
         "no": "No"
+      },
+      "buildings": {
+        "residential": "Residential",
+        "commercial": "Commercial",
+        "public": "Public"
+  
       }
     }
   },
