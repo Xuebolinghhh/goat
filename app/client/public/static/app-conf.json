@@ -631,14 +631,6 @@
           "id": 1,
           "children": [
             {
-              "name": "Nursery",
-              "value": "nursery",
-              "icon": "nursery",
-              "weight": 1,
-              "sensitivity": 300000,
-              "locked": false
-            },
-            {
               "name": "Kindergarten",
               "value": "kindergarten",
               "icon": "kindergarten",
@@ -723,13 +715,6 @@
               "icon": "restaurant",
               "weight": 1,
               "sensitivity": 300000
-            },
-            {
-              "name": "Night-Club",
-              "value": "nightclub",
-              "icon": "nightclub",
-              "weight": 1,
-              "sensitivity": 300000
             }
           ]
         },
@@ -738,13 +723,6 @@
           "categoryValue": "transport",
           "locked": false,
           "children": [
-            {
-              "name": "Bicycle rental",
-              "value": "bicycle_rental",
-              "icon": "bicycle_rental",
-              "weight": 1,
-              "sensitivity": 300000
-            },
             {
               "name": "Car sharing",
               "value": "car_sharing",
@@ -768,100 +746,9 @@
               "sensitivity": 300000
             },
             {
-              "name": "Tram Stop",
-              "value": "tram_stop",
-              "icon": "tram_stop",
-              "weight": 1,
-              "sensitivity": 300000
-            },
-            {
-              "name": "U-Bahn station",
-              "value": "subway_entrance",
-              "icon": "subway_entrance",
-              "weight": 1,
-              "sensitivity": 300000
-            },
-            {
               "name": "Rail Station",
               "value": "rail_station",
               "icon": "rail_station",
-              "weight": 1,
-              "sensitivity": 300000
-            },
-            {
-              "name": "Taxi",
-              "value": "taxi",
-              "icon": "taxi",
-              "weight": 1,
-              "sensitivity": 300000
-            }
-          ]
-        },
-        {
-          "name": "mobilitystations",
-          "categoryValue": "mobilitystations",
-          "locked": false,
-          "children": [
-            {
-              "name": "Bikesharing FFB",
-              "value": "bikesharing_ffb",
-              "icon": "bikesharing",
-              "weight": 1,
-              "sensitivity": 300000
-            },
-            {
-              "name": "Carsharing FFB",
-              "value": "carsharing_ffb",
-              "icon": "carsharing",
-              "weight": 1,
-              "sensitivity": 300000
-            },
-            {
-              "name": "Charging Station FFB",
-              "value": "charging_station_marker_ffb",
-              "icon": "charging_station_marker",
-              "weight": 1,
-              "sensitivity": 300000
-            },
-            {
-              "name": "Charging Station Other FFB",
-              "value": "charging_station_other_ffb",
-              "icon": "charging_station_other",
-              "weight": 1,
-              "sensitivity": 300000
-            },
-            {
-              "name": "Charging Station Public FFB",
-              "value": "charging_station_public_ffb",
-              "icon": "charging_station_public",
-              "weight": 1,
-              "sensitivity": 300000
-            },
-            {
-              "name": "E-Parking FFB",
-              "value": "e_parking_ffb",
-              "icon": "e_parking",
-              "weight": 1,
-              "sensitivity": 300000
-            },
-            {
-              "name": "L-Station FFB",
-              "value": "l-station_ffb",
-              "icon": "l-station",
-              "weight": 1,
-              "sensitivity": 300000
-            },
-            {
-              "name": "S-Station Prio 1 FFB",
-              "value": "s-station_prio1_ffb",
-              "icon": "s-station_prio1",
-              "weight": 1,
-              "sensitivity": 300000
-            },
-            {
-              "name": "S-Station Prio 2 FFB",
-              "value": "s-station_prio2_ffb",
-              "icon": "s-station_prio2",
               "weight": 1,
               "sensitivity": 300000
             }
@@ -890,20 +777,6 @@
               "name": "Bank",
               "value": "bank",
               "icon": "bank",
-              "weight": 1,
-              "sensitivity": 300000
-            },
-            {
-              "name": "Dentist",
-              "value": "dentist",
-              "icon": "dentist",
-              "weight": 1,
-              "sensitivity": 300000
-            },
-            {
-              "name": "Doctor",
-              "value": "doctors",
-              "icon": "doctors",
               "weight": 1,
               "sensitivity": 300000
             },
@@ -985,20 +858,6 @@
               "sensitivity": 300000
             },
             {
-              "name": "Mall",
-              "value": "mall",
-              "icon": "mall",
-              "weight": 1,
-              "sensitivity": 300000
-            },
-            {
-              "name": "Shoes",
-              "value": "shoes",
-              "icon": "shoes",
-              "weight": 1,
-              "sensitivity": 300000
-            },
-            {
               "name": "Supermarket",
               "value": "supermarket",
               "icon": "supermarket",
@@ -1039,14 +898,7 @@
               "icon": "organic",
               "weight": 1,
               "sensitivity": 300000
-            },
-            {
-              "name": "Marketplace",
-              "value": "marketplace",
-              "icon": "marketplace",
-              "weight": 1,
-              "sensitivity": 300000
-            }
+            }           
           ]
         },
         {
@@ -1061,20 +913,6 @@
               "sensitivity": 300000
             },
             {
-              "name": "Theatre",
-              "value": "theatre",
-              "icon": "theatre",
-              "weight": 1,
-              "sensitivity": 300000
-            },
-            {
-              "name": "Museum",
-              "value": "museum",
-              "icon": "museum",
-              "weight": 1,
-              "sensitivity": 300000
-            },
-            {
               "name": "Hotel",
               "value": "hotel",
               "icon": "hotel",
@@ -1085,20 +923,6 @@
               "name": "Hostel",
               "value": "hostel",
               "icon": "hostel",
-              "weight": 1,
-              "sensitivity": 300000
-            },
-            {
-              "name": "Guest house",
-              "value": "guest_house",
-              "icon": "guest_house",
-              "weight": 1,
-              "sensitivity": 300000
-            },
-            {
-              "name": "Gallery",
-              "value": "gallery",
-              "icon": "gallery",
               "weight": 1,
               "sensitivity": 300000
             },
