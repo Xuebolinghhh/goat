@@ -120,6 +120,21 @@
       },
       {
         "type": "WMS",
+        "name": "zoningPlan",
+        "url": "https://goat.open-accessibility.org/geoserver/wms?",
+        "group": "buildings_landuse",
+        "layers": "cite:fnp_freising",
+        "opacity": 1,
+        "queryable": true,
+        "visible": false,
+        "canEdit": false,
+        "displayInLayerList": true,
+        "zIndex": 1,
+        "attributions": "© <a href='https://www.freising.de'>Stadt Freising</a>",
+        "serverType": "geoserver"
+      },
+      {
+        "type": "WMS",
         "name": "buildings",
         "group": "buildings_landuse",
         "url": "/geoserver/wms",
