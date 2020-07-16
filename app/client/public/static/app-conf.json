@@ -152,19 +152,6 @@
       },
       {
         "type": "WMS",
-        "name": "extentStudyarea",
-        "url": "/geoserver/wms",
-        "group": "buildings_landuse",
-        "layers": "cite:crop_study_area",
-        "opacity": 0.5,
-        "queryable": false,
-        "visible": true,
-        "displayInLayerList": false,
-        "zIndex": 4,
-        "serverType": "geoserver"
-      },
-      {
-        "type": "WMS",
         "name": "speed",
         "url": "/geoserver/wms",
         "group": "streetlevelqualityLayers",
