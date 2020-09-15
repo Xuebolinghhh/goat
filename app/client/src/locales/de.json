@@ -148,6 +148,7 @@
       "snapGuide": "Zeichenhilfe",
       "clearBtn": "Reset",
       "uploadBtn": "Hochladen",
+      "addEntrancesForBuildings": "Um den <b>Hochladen</b> Button zu aktivieren, müssen zu allen Gebäuden Eingänge hinzugefügt werden",
       "popup": {
         "deleteFeatureMsg": "Möchten Sie das ausgewählte Feature wirklich löschen?",
         "selectWayType": "Art des Weges auswählen: ",
@@ -281,7 +282,7 @@
     },
     "isochrones": "Isochronen",
     "deleteTitle": "Löschen",
-    "deleteMessage": "Soll Berechnung wirklich gelöscht werden?",
+    "deleteMessage": "Soll Berechnung wirklich gelöscht werden",
     "download": {
       "title": "Isochronen herunterladen",
       "fileName": "Dateiname",
@@ -321,7 +322,7 @@
       "title": "Legende Layer"
     },
     "snackbarMessages": {
-      "selectAmenities": "Mind. ein Ziel auswählen",
+      "selectAmenities": "Mind. ein Point-of-Interest (Thematische Daten) auswählen",
       "calculateIsochroneError": "Hier ist leider keine Berechnung möglich.",
       "uploadScenarioSuccess": "Objekte wurden erfolgreich hochgeladen.",
       "uploadScenarioError": "Leider ist beim Hochladen der Objekte in die Datenbank ein Fehler aufgetreten.",
@@ -347,8 +348,10 @@
       "administrativeUnits": "Administrative Grenzen",
       "accidents_pedestrian_2018": "Unfälle mit Fußgängern (2018)",
       "accidents_pedestrian_2017": "Unfälle mit Fußgängern (2017)",
-      "accidents_bike_2018":"Unfälle mit Radfahrern (2018)",
-      "accidents_bike_2017":"Unfälle mit Radfahrern (2017)",
+      "accidents_bike_2018": "Unfälle mit Radfahrern (2018)",
+      "accidents_bike_2017": "Unfälle mit Radfahrern (2017)",
+      "bicycle_counting_stations": "Raddauerzählstellen (2019)",
+      "street_trees": "Straßenbäume",
       "biotops": "Biotope",
       "ffh-area": "FFH-Gebiete",
       "natureReserves": "Naturschutzgebiete",
@@ -359,9 +362,13 @@
       "protectedLandscape": "Landschaftsschutzgebiete",
       "landuse": "Flächennutzung (ATKIS)",
       "landuse_osm": "Flächennutzung (OSM)",
+      "zoningPlan": "Flächennutzungsplan (FNP)",
       "footpathWidth": "Fußwegbreite",
       "illuminance": "Beleuchtung",
       "lanes": "Anzahl der Fahrspuren",
+      "noiseAircraftLDEN": "Fluglärm - Pegelraster LDEN",
+      "noiseAircraftLNight": "Fluglärm - Pegelraster LNight",
+      "noiseProtectionBauleitplanung": "Lärmschutzbereich zur Lenkung der Bauleitplanung",
       "parking": "Parkplätze am Straßenrand",
       "smoothness": "Qualität Oberfläche",
       "speed": "Geschwindigkeitsbegrenzungen",
@@ -401,6 +408,13 @@
       "clickAndDragToModify": "Objekt anklicken und ziehen, um es zu verändern",
       "clickToRemove": "Zum Entfernen klicken",
       "clickToPlacePoint": "Klicken, um den Punkt zu platzieren",
+      "changeDefaultColorPalette": "Farbe ändern (Standard)",
+      "changeScenarioColorPalette": "Farbe ändern (Szenario)",
+      "clickToBldEntrance": "Auf das Gebäude klicken, um Eingang hinzuzufügen <br>Klicken und ziehen, um das Gebäude zu modifizieren <br>Rechtsklick, um das Objekt zu löschen",
+      "clickToBldEntranceNotAllowed": "Hier kann kein Eingang hinzugefügt werden. Klicken Sie auf ein neu hinzugefügtes Gebäude.",
+      "moveExistingBuildingNotAllowed": "Klicken Sie auf ein neu hinzugefügtes Gebäude, um dieses zu verschieben.",
+      "modifyExistingBuildingNotAllowed": "Klicken Sie auf ein neu hinzugefügtes Gebäude, um dieses zu modifizieren.",
+      "openDocumentation": "Dokumentation öffnen",
       "routingProfiles": {
         "walking": {
           "title": "Fußgänger",
@@ -433,8 +447,17 @@
           }
         },
         "walking_wheelchair": {
-          "title": "Rollstuhl",
-          "tooltip": "Routing berücksichtigt nur barrierefreie Wege und Ziele"
+          "title": "Routing berücksichtigt nur barrierefreie Wege und Ziele",
+          "options": {
+            "standard": {
+              "title": "Standard",
+              "tooltip": "Default Routing"
+            },
+            "electric": {
+              "title": "Electric",
+              "tooltip": "Electric"
+            }
+          }
         }
       },
       "zoomToFeature": "Zum Objekt zoomen",
@@ -498,6 +521,24 @@
             "fillInOSMiD": "Fügen Sie das fehlende Attribut 'surface' im OSM Editor hinzu. Beachten Sie hierzu die entsprechenden Richtlinien aus dem OSM-Wiki. Die fehlenden Informationen können z.B. anhand von Mapillary-Aufnahmen oder durch einen Vor-Ort Besuch ermittelt werden."
           }
         },
+        "osm-mapping-cycleways-width": {
+          "missingKeyWord": "Radwegebreite",
+          "layerName": "Wege",
+          "stepsDesc": {
+            "clickFeatureInMap": "Die roten Linien in der Karte zeigen die Mapping-Aufgaben. Wählen Sie eine davon aus.",
+            "clickEditWithOsm": "Durch Klicken auf den <b>'In OSM bearbeiten'</b> Link werden Sie zum OSM iD-Editor weitergeleitet.",
+            "fillInOSMiD": "Fügen Sie das fehlende Attribut 'width' im OSM Editor hinzu. Beachten Sie hierzu die entsprechenden Richtlinien aus dem OSM-Wiki. Die fehlenden Informationen können z.B. anhand von Mapillary-Aufnahmen oder durch einen Vor-Ort Besuch ermittelt werden."
+          }
+        },
+        "osm-mapping-cycleways-segregated": {
+          "missingKeyWord": "Trennung zwischen Fuß- und Radverkehr",
+          "layerName": "Wege",
+          "stepsDesc": {
+            "clickFeatureInMap": "Die roten Linien in der Karte zeigen die Mapping-Aufgaben. Wählen Sie eine davon aus.",
+            "clickEditWithOsm": "Durch Klicken auf den <b>'In OSM bearbeiten'</b> Link werden Sie zum OSM iD-Editor weitergeleitet.",
+            "fillInOSMiD": "Fügen Sie das fehlende Attribut 'segregated' im OSM Editor hinzu. Beachten Sie hierzu die entsprechenden Richtlinien aus dem OSM-Wiki. Die fehlenden Informationen können z.B. anhand von Mapillary-Aufnahmen oder durch einen Vor-Ort Besuch ermittelt werden."
+          }
+        },
         "osm-mapping-ways-wheelchair": {
           "missingKeyWord": "Barrierefreiheit",
           "layerName": "Wege"
@@ -508,7 +549,8 @@
           "stepsDesc": {
             "clickFeatureInMap": "Die roten Polygone in der Karte zeigen die Mapping-Aufgaben. Wählen Sie eine davon aus.",
             "clickEditWithOsm": "Durch Klicken auf den <b>'In OSM bearbeiten'</b> Link werden Sie zum OSM iD-Editor weitergeleitet.",
-            "fillInOSMiD": "Editieren Sie das Attribut 'building' im OSM Editor. Beachten Sie hierzu die entsprechenden Richtlinien aus dem OSM-Wiki. Die fehlenden Informationen können z.B. anhand von Mapillary-Aufnahmen und Luftbildern oder durch einen Vor-Ort Besuch ermittelt werden."}
+            "fillInOSMiD": "Editieren Sie das Attribut 'building' im OSM Editor. Beachten Sie hierzu die entsprechenden Richtlinien aus dem OSM-Wiki. Die fehlenden Informationen können z.B. anhand von Mapillary-Aufnahmen und Luftbildern oder durch einen Vor-Ort Besuch ermittelt werden."
+          }
         }
       },
 
@@ -553,7 +595,7 @@
     "charging_station_other_ffb": "E-Ladesäulen privat (im Bau)",
     "charging_station_public_ffb": "E-Ladesäulen öffentlich",
     "e_parking_ffb": "E-Stellplätze",
-    "l-station_ffb": "L-Station",
+    "l-station_ffb": "L-Station Prio 1",
     "s-station_prio1_ffb": "S-Station Prio 1",
     "s-station_prio2_ffb": "S-Station Prio 2",
     "hairdresser": "Friseur",
@@ -590,6 +632,13 @@
     "university": "Universität",
     "hospital": "Krankenhaus",
     "playground": "Spielplatz",
+    "sports": "Sports",
+    "community_sports_center": "Bezirkssportanlagen",
+    "waterpark": "Schwimmbad",
+    "discount_gym": "Discount Fitnessstudio",
+    "gym": "Fitnessstudio",
+    "yoga":"Yoga",
+    "outdoor_fitness_station":"Outdoor Fitness",
     "population": "Bevölkerung"
   },
   "$vuetify": {
@@ -636,12 +685,25 @@
       "ways": {
         "way_type": "Wegetyp",
         "surface": "Oberfläche",
-        "wheelchair": "Rohlstuhl"
+        "wheelchair": "Rollstuhl"
       },
       "pois": {
         "amenity": "Einrichtung",
         "name": "Name (Optional)",
         "opening_hours": "Öffnungszeiten (Optional)"
+      },
+      "buildings":{
+      "building": "Gebäudetyp",
+      "building_levels": "Anzahl Geschosse",
+      "building_levels_residential": "Anzahl Geschosse Wohnen",
+      "population": "Einwohneranzahl (optional)",
+      "gross_floor_area": "Geschossfläche",
+      "labels": {
+          "area": "Fläche",
+          "building_levels": "Anzahl Geschosse",
+          "gross_floor_area":"Geschossfläche",
+          "population": "Einwohner"
+      }
       }
     },
     "listValues": {
@@ -656,6 +718,11 @@
         "unpaved": "Unbefestigt",
         "yes": "Ja",
         "no": "Nein"
+      },
+      "buildings": {
+        "residential": "Wohnen",
+        "commercial": "Gewerbe",
+        "public": "Öffentliche Einrichtung"
       }
     }
   }

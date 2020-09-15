@@ -5,6 +5,8 @@ import OlCircle from "ol/style/Circle";
 import OlIcon from "ol/style/Icon";
 import OlText from "ol/style/Text";
 import store from "../store/modules/map";
+import { getArea } from "ol/sphere.js";
+import i18n from "../../src/plugins/i18n";
 
 export function getMeasureStyle(measureConf) {
   return new OlStyle({
@@ -214,7 +216,8 @@ export function getIsochroneStyle(styleData, addStyleInCache) {
   return styleFunction;
 }
 
-export function defaultStyle(feature) {
+export function defaultStyle(feature, resolution) {
+  const styles = [];
   const geomType = feature.getGeometry().getType();
   const strokeOpt = {
     color: ["MultiPolygon", "Polygon"].includes(geomType)
@@ -234,7 +237,10 @@ export function defaultStyle(feature) {
 
     let isCompleted = true;
     let hasEntranceFeature = false;
-    if (store.state.reqFields) {
+    if (
+      store.state.reqFields &&
+      store.state.selectedEditLayer.get("name") === "buildings"
+    ) {
       store.state.reqFields.forEach(field => {
         if (!properties[field]) {
           isCompleted = false;
@@ -265,6 +271,48 @@ export function defaultStyle(feature) {
       strokeOpt.color = "rgb(0,128,0, 0.7)";
       fillOpt.color = "rgb(0,128,0, 0.7)";
     }
+    const area = getArea(feature.getGeometry());
+    const building_levels = feature.get("building_levels");
+    const population = feature.get("population");
+    const area_label = i18n.t("dynamicFields.attributes.buildings.labels.area");
+    const building_levels_label = i18n.t(
+      "dynamicFields.attributes.buildings.labels.building_levels"
+    );
+    const population_label = i18n.t(
+      "dynamicFields.attributes.buildings.labels.population"
+    );
+    const floor_area_label = i18n.t(
+      "dynamicFields.attributes.buildings.labels.gross_floor_area"
+    );
+    // Add label for building.
+    let fontSize = 12;
+
+    if (
+      resolution < 1.2 &&
+      store.state.editLayer &&
+      store.state.editLayer.get("showLabels") === 0
+    ) {
+      const style = new OlStyle({
+        text: new OlText({
+          text: `${area_label}: ${area.toFixed(
+            0
+          )} ㎡\n${building_levels_label}: ${building_levels.toFixed(
+            0
+          )}\n${floor_area_label}: ${parseInt(area * building_levels)} ㎡
+          ${population_label}: ${parseInt(population || 0)}`,
+          overflow: true,
+          font: `${fontSize}px Calibri, sans-serif`,
+          fill: new OlFill({
+            color: "black"
+          }),
+          backgroundFill: new OlFill({
+            color: "orange"
+          }),
+          padding: [1, 1, 1, 1]
+        })
+      });
+      styles.push(style);
+    }
   }
   const style = new OlStyle({
     fill: new OlFill(fillOpt),
@@ -276,7 +324,8 @@ export function defaultStyle(feature) {
       })
     })
   });
-  return [style];
+  styles.push(style);
+  return styles;
 }
 
 export function uploadedFeaturesStyle() {
@@ -343,11 +392,11 @@ export function waysNewBridgeStyle(feature) {
   return [style];
 }
 export function editStyleFn() {
-  const styleFunction = feature => {
+  const styleFunction = (feature, resolution) => {
     const props = feature.getProperties();
     // Polygon (ex. building) style
     if (["MultiPolygon", "Polygon"].includes(feature.getGeometry().getType())) {
-      return defaultStyle(feature);
+      return defaultStyle(feature, resolution);
     }
 
     // Linestring (ex. ways ) style
@@ -364,7 +413,7 @@ export function editStyleFn() {
     } else if (props.hasOwnProperty("way_type")) {
       return waysModifiedStyle(feature); //Feature are modified
     } else {
-      return defaultStyle(feature); //Features are from original table
+      return defaultStyle(feature, resolution); //Features are from original table
     }
   };
 
@@ -391,24 +440,52 @@ export function getFeatureHighlightStyle() {
   ];
 }
 
-export function bldEntrancePointsStyle() {
+export function studyAreaASelectStyle() {
   return [
     new OlStyle({
       fill: new OlFill({
-        color: "#800080"
+        color: "rgba(255, 0, 0, 0.5)"
       }),
       stroke: new OlStroke({
-        color: "#800080",
-        width: 8
+        color: "#FF0000",
+        width: 10
       }),
       image: new OlCircle({
-        radius: 8,
+        radius: 10,
         fill: new OlFill({
-          color: "#800080"
+          color: "#FF0000"
         })
       })
     })
   ];
+}
+
+export function bldEntrancePointsStyle() {
+  return (feature, resolution) => {
+    let radius = 8;
+    if (resolution > 4) {
+      return [];
+    }
+    const styles = [];
+    styles.push(
+      new OlStyle({
+        fill: new OlFill({
+          color: "#800080"
+        }),
+        stroke: new OlStroke({
+          color: "#800080",
+          width: radius
+        }),
+        image: new OlCircle({
+          radius: radius,
+          fill: new OlFill({
+            color: "#800080"
+          })
+        })
+      })
+    );
+    return styles;
+  };
 }
 
 export const baseStyleDefs = {
@@ -426,7 +503,7 @@ export const baseStyleDefs = {
 };
 
 /**
- * Mapillary styles
+ * Mapillary styles -
  */
 
 export const mapillaryStyleDefs = {
