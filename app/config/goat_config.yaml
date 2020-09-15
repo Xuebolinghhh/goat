@@ -12,7 +12,7 @@ DATA_REFINEMENT_VARIABLES:
   #disaggregation ==> landuse.shp needed as input + high-resolution population input data + building data
   #distribution ==> landuse.sho need as input + high-resolution population input data 
   #custom_population ==> population.shp custom population data needed  
-  POPULATION: "extrapolation"
+  POPULATION: "disaggregation"
   #"yes" if you want to add these layers 
   ADDITIONAL_WALKABILITY_LAYERS: "yes" 
   OSM_MAPPING_FEATURE: "yes"
