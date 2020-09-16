@@ -95,7 +95,7 @@
         "name": "landuse",
         "url": "/geoserver/wms",
         "group": "buildings_landuse",
-        "layers": "cite:landuse_atkis",
+        "layers": "cite:landuse",
         "viewparamsDynamicKeys": ["userId"],
         "opacity": 1,
         "queryable": true,
