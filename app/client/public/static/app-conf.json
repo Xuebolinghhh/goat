@@ -222,6 +222,48 @@
       },
       {
         "type": "WMS",
+        "name": "noiseAircraftLDEN",
+        "url": "https://www.lfu.bayern.de/gdi/wms/laerm/flughaefen?",
+        "group": "environmentalQualityLayers",
+        "layers": "mairlden",
+        "opacity": 1,
+        "queryable": true,
+        "visible": false,
+        "canEdit": false,
+        "displayInLayerList": true,
+        "zIndex": 1,
+        "attributions": "© <a href='https://www.lfu.bayern.de'>Bayerisches Landesamt für Umwelt</a>"
+      },
+      {
+        "type": "WMS",
+        "name": "noiseAircraftLNight",
+        "url": "https://www.lfu.bayern.de/gdi/wms/laerm/flughaefen?",
+        "group": "environmentalQualityLayers",
+        "layers": "mairln",
+        "opacity": 1,
+        "queryable": true,
+        "visible": false,
+        "canEdit": false,
+        "displayInLayerList": true,
+        "zIndex": 1,
+        "attributions": "© <a href='https://www.lfu.bayern.de'>Bayerisches Landesamt für Umwelt</a>"
+      },
+      {
+        "type": "WMS",
+        "name": "noiseProtectionBauleitplanung",
+        "url": "http://risby.bayern.de/RisGate/servlet/Regionalplanung",
+        "group": "environmentalQualityLayers",
+        "layers": "R16SLXF",
+        "opacity": 1,
+        "queryable": true,
+        "visible": false,
+        "canEdit": false,
+        "displayInLayerList": true,
+        "zIndex": 1,
+        "attributions": "© <a href='https://www.stmwi.bayern.de/'>Bayerisches Staatsministerium für Wirtschaft, Landesentwicklung und Energie</a>"
+      },
+      {
+        "type": "WMS",
         "name": "natureReserves",
         "url": "https://www.lfu.bayern.de/gdi/wms/natur/schutzgebiete?",
         "group": "environmentalQualityLayers",
@@ -262,6 +304,20 @@
         "displayInLayerList": true,
         "zIndex": 1,
         "attributions": "© <a href='https://www.lfu.bayern.de'>Bayerisches Landesamt für Umwelt</a>"
+      },
+      {
+        "type": "WMS",
+        "name": "street_trees",
+        "url": "https://image.discomap.eea.europa.eu/arcgis/services/UrbanAtlas/STL/MapServer/WmsServer",
+        "group": "environmentalQualityLayers",
+        "layers": "STL Vector",
+        "opacity": 1,
+        "queryable": true,
+        "visible": false,
+        "canEdit": false,
+        "displayInLayerList": true,
+        "zIndex": 1,
+        "attributions": "© <a href='https://land.copernicus.eu/'>Copernicus Land Monitoring Service</a>"
       },
       {
         "type": "WMS",
@@ -318,6 +374,35 @@
         "displayInLayerList": true,
         "zIndex": 1,
         "attributions": "© <a href='http://www.statistikportal.de/de'>Statistikportal </a>"
+      },
+      {
+        "type": "WMS",
+        "name": "bicycle_counting_stations",
+        "url": "/geoserver/wms",
+        "group": "additionalDataLayers",
+        "layers": "cite:bicycle_counting_stations",
+        "opacity": 1,
+        "queryable": true,
+        "visible": false,
+        "canEdit": false,
+        "displayInLayerList": true,
+        "zIndex": 1,
+        "serverType": "geoserver",
+        "attributions": "© <a href='https://www.opengov-muenchen.de/pages/raddauerzaehlstellen'>Open Data Portal München</a>"
+      },
+      {
+        "type": "WMS",
+        "name": "modeshare",
+        "url": "/geoserver/wms",
+        "group": "additionalDataLayers",
+        "layers": "cite:mode_share ",
+        "opacity": 1,
+        "queryable": true,
+        "visible": false,
+        "canEdit": false,
+        "displayInLayerList": true,
+        "zIndex": 1,
+        "serverType": "geoserver"
       },
       {
         "type": "WMS",
@@ -493,6 +578,78 @@
             "fillInOSMiD"
           ],
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Speed_limits"
+        }
+      },
+      {
+        "type": "WMS",
+        "name": "osm-mapping-parking-lane",
+        "url": "/geoserver/wms",
+        "group": "osmMappingLayers",
+        "layers": "cite:mapping_parking_lane",
+        "opacity": 1,
+        "queryable": true,
+        "visible": false,
+        "displayInLayerList": false,
+        "displayInLegend": false,
+        "requiresPois": true,
+        "zIndex": 31,
+        "serverType": "geoserver",
+        "otherProps": {
+          "icon": "fas fa-car",
+          "stepsOrdersKeys": [
+            "clickFeatureInMap",
+            "clickEditWithOsm",
+            "fillInOSMiD"
+          ],
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:parking:lane"
+        }
+      },
+      {
+        "type": "WMS",
+        "name": "osm-mapping-cycleways-width",
+        "url": "/geoserver/wms",
+        "group": "osmMappingLayers",
+        "layers": "cite:mapping_cycleways_width",
+        "opacity": 1,
+        "queryable": true,
+        "visible": false,
+        "displayInLayerList": false,
+        "displayInLegend": false,
+        "requiresPois": true,
+        "zIndex": 31,
+        "serverType": "geoserver",
+        "otherProps": {
+          "icon": "fas fa-biking",
+          "stepsOrdersKeys": [
+            "clickFeatureInMap",
+            "clickEditWithOsm",
+            "fillInOSMiD"
+          ],
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:width"
+        }
+      },
+      {
+        "type": "WMS",
+        "name": "osm-mapping-cycleways-segregated",
+        "url": "/geoserver/wms",
+        "group": "osmMappingLayers",
+        "layers": "cite:mapping_cycleways_segregated",
+        "opacity": 1,
+        "queryable": true,
+        "visible": false,
+        "displayInLayerList": false,
+        "displayInLegend": false,
+        "requiresPois": true,
+        "zIndex": 31,
+        "serverType": "geoserver",
+        "otherProps": {
+          "icon": "fas fa-walking",
+          "stepsOrdersKeys": [
+            "clickFeatureInMap",
+            "clickEditWithOsm",
+            "fillInOSMiD"
+          ],
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:segregated"
         }
       },
       {
@@ -1293,6 +1450,7 @@
       "enableFileUpload": false,
       "hiddenProps": [
         "userid",
+        "scenario_id",
         "id",
         "original_id",
         "status",
