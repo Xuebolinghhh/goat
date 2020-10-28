@@ -186,7 +186,7 @@ const actions = {
     const CancelToken = axios.CancelToken;
     const isochronesResponse = await http
       .post(`/api/${isochroneEndpoint}`, params, {
-        timeout: 30000,
+        timeout: 60000,
         cancelToken: new CancelToken(function executor(c) {
           // An executor function receives a cancel function as a parameter
           commit("SET_CANCEL_FUNCTION", c);
