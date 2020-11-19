@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://www.open-accessibility.org/">
-        <img src="https://www.open-accessibility.org/img/Homepage/logo.png" width="175">
+        <img src="https://www.open-accessibility.org/uploads/homepage/logo.png" width="175">
     </a>
 </div>
 
@@ -32,4 +32,4 @@ For more information:
 
 If you want to help us translating the GOAT userinterface, you are very welcome to help us. Just check the following POEditor-Link:
 
-[Click here](https://poeditor.com/join/project/M2FCLLqSoe)
+[Click here](https://poeditor.com/join/project/yH6FuzIYHC)
