@@ -67,6 +67,7 @@
         "canEdit": true,
         "editDataType": "GeoJSON",
         "editGeometry": ["LineString"],
+        "modifyAttributes": true,
         "displayInLayerList": false,
         "zIndex": 2,
         "serverType": "geoserver"
@@ -77,7 +78,7 @@
         "url": "/geoserver/wms",
         "group": "poisLayers",
         "layers": "cite:pois",
-        "viewparams": "amenities:'cG9wdWxhdGlvbg=='",
+        "viewparamsDynamicKeys": ["modus"],
         "opacity": 1,
         "queryable": true,
         "visible": false,
@@ -362,6 +363,50 @@
       },
       {
         "type": "WMS",
+        "name": "street_trees",
+        "url": "https://image.discomap.eea.europa.eu/arcgis/services/UrbanAtlas/STL/MapServer/WmsServer",
+        "group": "environmentalQualityLayers",
+        "layers": "STL Vector",
+        "opacity": 1,
+        "queryable": true,
+        "visible": false,
+        "canEdit": false,
+        "displayInLayerList": true,
+        "zIndex": 1,
+        "attributions": "© <a href='https://land.copernicus.eu/'>Copernicus Land Monitoring Service</a>"
+      },
+      {
+        "type": "WMS",
+        "name": "accidentsPedestrians",
+        "url": "/geoserver/wms",
+        "group": "additionalDataLayers",
+        "layers": "cite:accidents_pedestrians",
+        "opacity": 1,
+        "visible": false,
+        "canEdit": false,
+        "queryable": true,
+        "displayInLayerList": true,
+        "zIndex": 1,
+        "serverType": "geoserver",
+        "attributions": "© <a href='http://www.statistikportal.de/de'>Statistikportal </a>"
+      },
+      {
+        "type": "WMS",
+        "name": "accidentsCyclists",
+        "url": "/geoserver/wms",
+        "group": "additionalDataLayers",
+        "layers": "cite:accidents_cyclists",
+        "opacity": 1,
+        "visible": false,
+        "canEdit": false,
+        "queryable": true,
+        "displayInLayerList": true,
+        "zIndex": 1,
+        "serverType": "geoserver",
+        "attributions": "© <a href='http://www.statistikportal.de/de'>Statistikportal </a>"
+      },
+      {
+        "type": "WMS",
         "name": "accidents_pedestrian_2018",
         "url": "http://www.wms.nrw.de/wms/unfallatlas?",
         "group": "additionalDataLayers",
@@ -422,7 +467,6 @@
         "url": "/geoserver/wms",
         "group": "accessbilityBasemaps",
         "layers": "cite:heatmap",
-        "viewparams": "amenities:'W10='",
         "opacity": 1,
         "queryable": false,
         "visible": false,
@@ -430,7 +474,13 @@
         "requiresPois": true,
         "zIndex": 1,
         "serverType": "geoserver",
-        "docUrl": "https://www.open-accessibility.org/docs/heatmap/"
+        "docUrl": "https://www.open-accessibility.org/docs/heatmap/",
+        "viewparamsDynamicKeys": ["scenario_id", "modus", "pois"],
+        "styles": {
+          "default": "cite:style_heatmap",
+          "scenario": "cite:style_heatmap",
+          "comparison": "cite:style_heatmap_comparison"
+        }
       },
       {
         "type": "WMS",
@@ -438,12 +488,16 @@
         "url": "/geoserver/wms",
         "group": "accessbilityBasemaps",
         "layers": "cite:heatmap_population",
-        "opacity": 0.4,
         "visible": false,
         "displayInLayerList": true,
         "zIndex": 1,
         "serverType": "geoserver",
-        "viewparamsDynamicKeys": ["userId"]
+        "viewparamsDynamicKeys": ["scenario_id", "modus"],
+        "styles": {
+          "default": "cite:style_heatmap_population",
+          "scenario": "cite:style_heatmap_population",
+          "comparison": "cite:style_heatmap_population_comparison"
+        }
       },
       {
         "type": "WMS",
@@ -451,14 +505,19 @@
         "url": "/geoserver/wms",
         "group": "accessbilityBasemaps",
         "layers": "cite:heatmap_luptai",
-        "viewparams": "amenities:W10=",
         "opacity": 1,
         "queryable": false,
         "visible": false,
         "displayInLayerList": true,
         "requiresPois": true,
         "zIndex": 1,
-        "serverType": "geoserver"
+        "serverType": "geoserver",
+        "viewparamsDynamicKeys": ["scenario_id", "modus", "pois"],
+        "styles": {
+          "default": "cite:style_heatmap_luptai",
+          "scenario": "cite:style_heatmap_luptai",
+          "comparison": "cite:style_heatmap_luptai_comparison"
+        }
       },
       {
         "type": "WMS",
@@ -549,7 +608,6 @@
         "url": "/geoserver/wms",
         "group": "osmMappingLayers",
         "layers": "cite:mapping_pois_opening_hours",
-        "viewparams": "amenities:'cG9wdWxhdGlvbg=='",
         "opacity": 1,
         "queryable": true,
         "visible": false,
@@ -590,6 +648,30 @@
             "fillInOSMiD"
           ],
           "wikiUrl": "https://wiki.openstreetmap.org/wiki/Speed_limits"
+        }
+      },
+      {
+        "type": "WMS",
+        "name": "osm-mapping-parking-lane",
+        "url": "/geoserver/wms",
+        "group": "osmMappingLayers",
+        "layers": "cite:mapping_parking_lane",
+        "opacity": 1,
+        "queryable": true,
+        "visible": false,
+        "displayInLayerList": false,
+        "displayInLegend": false,
+        "requiresPois": true,
+        "zIndex": 31,
+        "serverType": "geoserver",
+        "otherProps": {
+          "icon": "fas fa-car",
+          "stepsOrdersKeys": [
+            "clickFeatureInMap",
+            "clickEditWithOsm",
+            "fillInOSMiD"
+          ],
+          "wikiUrl": "https://wiki.openstreetmap.org/wiki/Key:parking:lane"
         }
       },
       {
@@ -1217,7 +1299,29 @@
               "poisFiltered": ["charging_station"]
             }
           ]
-        }
+        },
+        "disabledPoisOnMappingMode": [
+          {
+            "categoryValue": "transport",
+            "poisFiltered": ["*"]
+          },
+          {
+            "categoryValue": "mobilitystations",
+            "poisFiltered": ["*"]
+          },
+          {
+            "categoryValue": "tourismAndLeisure",
+            "poisFiltered": ["hotel","hostel","guest_house","playground"]
+          },
+          {
+            "categoryValue": "services",
+            "poisFiltered": ["recycling","post_box"]
+          },
+          {
+            "categoryValue": "education",
+            "poisFiltered": ["primary_school","secondary_school"]
+          }
+        ]
       }
     },
     "isochrones": {
@@ -1441,10 +1545,14 @@
       "enableFileUpload": false,
       "hiddenProps": [
         "userid",
-        "id",
+        "gid",
         "original_id",
         "status",
-        "street_category"
+        "street_category",
+        "scenario_id",
+        "foot",
+        "bicycle",
+        "lit"
       ]
     },
     "pois": {
@@ -1457,13 +1565,14 @@
       "hiddenProps": [
         "userid",
         "scenario_id",
-        "id",
+        "gid",
         "original_id",
         "status",
         "wheelchair",
         "status",
         "amenity_icon",
-        "opening_hours"
+        "opening_hours",
+        "scenario_id"
       ]
     },
     "buildings": {
@@ -1476,10 +1585,11 @@
       "hiddenProps": [
         "gid",
         "userid",
-        "id",
+        "gid",
         "original_id",
         "status",
-        "gross_floor_area"
+        "gross_floor_area",
+        "scenario_id"
       ]
     }
   }
