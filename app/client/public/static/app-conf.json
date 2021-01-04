@@ -1480,7 +1480,8 @@
         "scenario_id",
         "foot",
         "bicycle",
-        "lit"
+        "lit",
+        "edit_type"
       ]
     },
     "pois": {
